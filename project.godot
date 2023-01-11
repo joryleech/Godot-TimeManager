@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Node",
+"class": &"TimeManager",
+"language": &"GDScript",
+"path": "res://TimeManager/TimeManager.gd"
+}, {
+"base": "Resource",
+"class": &"TimePeriod",
+"language": &"GDScript",
+"path": "res://TimeManager/TimePeriod.gd"
+}]
+_global_script_class_icons={
+"TimeManager": "",
+"TimePeriod": ""
+}
+
+[application]
+
+config/name="DayPassTest"
+run/main_scene="res://Sample/SampleScene.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://icon.svg"
+
+[rendering]
+
+renderer/rendering_method="mobile"

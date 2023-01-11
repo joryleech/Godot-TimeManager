@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmfng70euhhb4"]
+
+[ext_resource type="Script" path="res://TimeManager/TimeManager.gd" id="1_6oes0"]
+[ext_resource type="Resource" uid="uid://d1tmdroxtnrxj" path="res://Sample/ExampleTimePeriods/Morning.tres" id="2_4c2le"]
+[ext_resource type="PackedScene" uid="uid://bhj1wltnv868r" path="res://TimeManager/GUI/TimeManagerGUI.tscn" id="3_1pd63"]
+[ext_resource type="Resource" uid="uid://764wjbhe25ep" path="res://Sample/ExampleTimePeriods/Afternoon.tres" id="3_qj834"]
+[ext_resource type="Resource" uid="uid://chlys2ywchsaa" path="res://Sample/ExampleTimePeriods/Evening.tres" id="4_xpklh"]
+[ext_resource type="Resource" uid="uid://bmqonc5p3w0jw" path="res://Sample/ExampleTimePeriods/Night.tres" id="5_57hnf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TimeManager" type="Node" parent="."]
+script = ExtResource("1_6oes0")
+timePeriods = [ExtResource("2_4c2le"), ExtResource("3_qj834"), ExtResource("4_xpklh"), ExtResource("5_57hnf")]
+
+[node name="Node2D" type="Node2D" parent="TimeManager"]
+
+[node name="TimeManagerGUI" parent="." node_paths=PackedStringArray("timeManagerRef") instance=ExtResource("3_1pd63")]
+timeManagerRef = NodePath("../TimeManager")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 38.0
+offset_right = 1120.0
+offset_bottom = 620.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Pass 1 Time" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Pass 1 Tme"
+
+[connection signal="button_down" from="Control/VBoxContainer/Pass 1 Time" to="TimeManager" method="pass_time_by_steps" binds= [1]]
