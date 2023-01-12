@@ -37,9 +37,12 @@ func get_times():
 	return timePeriods
 	
 func serialize():
-	#TODO
-	pass
-	
+	return {
+		"_currentTimePeriodIndex":_currentTimePeriodIndex,
+		"_currentDay": _currentDay
+	}
+
 func deserialize(json : Dictionary):
-	#TODO
-	pass
+	_currentTimePeriodIndex = json.get("_currentTimePeriodIndex", _currentTimePeriodIndex)
+	_currentDay = json.get("_currentDay", _currentDay)
+	emit_signal('on_time_is_changed')

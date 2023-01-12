@@ -12,8 +12,6 @@ func _ready():
 
 func is_enabled():
 	var current_time = timeManagerRef.get_current_time()
-	print(current_time)
-	print( activePeriods.find(current_time))
 	return activePeriods.find(current_time) != -1
 	
 func check_time():
