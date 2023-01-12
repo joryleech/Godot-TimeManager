@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmfng70euhhb4"]
+[gd_scene load_steps=9 format=3 uid="uid://cmfng70euhhb4"]
 
 [ext_resource type="Script" path="res://TimeManager/TimeManager.gd" id="1_6oes0"]
 [ext_resource type="Resource" uid="uid://d1tmdroxtnrxj" path="res://Sample/ExampleTimePeriods/Morning.tres" id="2_4c2le"]
@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://764wjbhe25ep" path="res://Sample/ExampleTimePeriods/Afternoon.tres" id="3_qj834"]
 [ext_resource type="Resource" uid="uid://chlys2ywchsaa" path="res://Sample/ExampleTimePeriods/Evening.tres" id="4_xpklh"]
 [ext_resource type="Resource" uid="uid://bmqonc5p3w0jw" path="res://Sample/ExampleTimePeriods/Night.tres" id="5_57hnf"]
+[ext_resource type="Script" path="res://TimeManager/Events/TimeBasedEvent.gd" id="7_v2641"]
+[ext_resource type="Texture2D" uid="uid://b6xqd33lhh7dh" path="res://icon.svg" id="8_854s6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,7 +20,7 @@ timePeriods = [ExtResource("2_4c2le"), ExtResource("3_qj834"), ExtResource("4_xp
 [node name="TimeManagerGUI" parent="." node_paths=PackedStringArray("timeManagerRef") instance=ExtResource("3_1pd63")]
 timeManagerRef = NodePath("../TimeManager")
 
-[node name="Control" type="Control" parent="."]
+[node name="Debug Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 500.0
@@ -26,14 +28,51 @@ offset_top = 38.0
 offset_right = 1120.0
 offset_bottom = 620.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Pass 1 Time" type="Button" parent="Control/VBoxContainer"]
+[node name="Pass 1 Time" type="Button" parent="Debug Menu/VBoxContainer"]
 layout_mode = 2
 text = "Pass 1 Tme"
 
-[connection signal="button_down" from="Control/VBoxContainer/Pass 1 Time" to="TimeManager" method="pass_time_by_steps" binds= [1]]
+[node name="Events" type="Node" parent="."]
+
+[node name="Morning Event" type="Node" parent="Events" node_paths=PackedStringArray("timeManagerRef")]
+script = ExtResource("7_v2641")
+timeManagerRef = NodePath("../../TimeManager")
+activePeriods = [ExtResource("2_4c2le")]
+manage_children = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Events/Morning Event"]
+position = Vector2(176, 263)
+texture = ExtResource("8_854s6")
+
+[node name="Label" type="Label" parent="Events/Morning Event/Sprite2D"]
+offset_left = -54.0
+offset_top = 68.0
+offset_right = 59.0
+offset_bottom = 94.0
+text = "Morning Event
+"
+
+[node name="Evening and Afternoon Event" type="Node" parent="Events" node_paths=PackedStringArray("timeManagerRef")]
+script = ExtResource("7_v2641")
+timeManagerRef = NodePath("../../TimeManager")
+activePeriods = [ExtResource("3_qj834"), ExtResource("4_xpklh")]
+manage_children = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Events/Evening and Afternoon Event"]
+position = Vector2(178, 461)
+texture = ExtResource("8_854s6")
+
+[node name="Label" type="Label" parent="Events/Evening and Afternoon Event/Sprite2D"]
+offset_left = -54.0
+offset_top = 68.0
+offset_right = 59.0
+offset_bottom = 94.0
+text = "Evening and Afternoon Event"
+
+[connection signal="button_down" from="Debug Menu/VBoxContainer/Pass 1 Time" to="TimeManager" method="pass_time_by_steps" binds= [1]]
