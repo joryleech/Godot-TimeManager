@@ -2,6 +2,7 @@ extends Node
 class_name TimeManager
 
 signal on_time_is_changed()
+signal on_time_is_passed(int)
 signal on_day_is_changed(int)
 
 @export var timePeriods : Array[Resource] = []
@@ -18,8 +19,9 @@ func pass_time_by_steps(steps):
 	if(_currentTimePeriodIndex >= len(timePeriods)):
 		_currentDay += floor(_currentTimePeriodIndex/len(timePeriods))
 		_currentTimePeriodIndex = _currentTimePeriodIndex % len(timePeriods)
+	emit_signal('on_time_is_passed', steps)
 	emit_signal('on_time_is_changed')
-		
+	
 func changeDay(delta_day : int):
 	_currentDay += floor(_currentTimePeriodIndex/len(timePeriods))
 	emit_signal("on_day_is_changed", delta_day)

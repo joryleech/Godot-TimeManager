@@ -12,12 +12,12 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"TimeManager",
 "language": &"GDScript",
-"path": "res://TimeManager/TimeManager.gd"
+"path": "res://addons/timemanager/TimeManager.gd"
 }, {
 "base": "Resource",
 "class": &"TimePeriod",
 "language": &"GDScript",
-"path": "res://TimeManager/TimePeriod.gd"
+"path": "res://addons/timemanager/TimePeriod.gd"
 }]
 _global_script_class_icons={
 "TimeManager": "",
@@ -30,6 +30,10 @@ config/name="DayPassTest"
 run/main_scene="res://Sample/SampleScene.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/timemanager/plugin.cfg")
 
 [rendering]
 

@@ -1,18 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmfng70euhhb4"]
+[gd_scene load_steps=9 format=3 uid="uid://e77euq40rl6t"]
 
-[ext_resource type="Script" path="res://TimeManager/TimeManager.gd" id="1_6oes0"]
-[ext_resource type="Resource" uid="uid://d1tmdroxtnrxj" path="res://Sample/ExampleTimePeriods/Morning.tres" id="2_4c2le"]
-[ext_resource type="PackedScene" uid="uid://bhj1wltnv868r" path="res://TimeManager/GUI/TimeManagerGUI.tscn" id="3_1pd63"]
-[ext_resource type="Resource" uid="uid://764wjbhe25ep" path="res://Sample/ExampleTimePeriods/Afternoon.tres" id="3_qj834"]
-[ext_resource type="Resource" uid="uid://chlys2ywchsaa" path="res://Sample/ExampleTimePeriods/Evening.tres" id="4_xpklh"]
-[ext_resource type="Resource" uid="uid://bmqonc5p3w0jw" path="res://Sample/ExampleTimePeriods/Night.tres" id="5_57hnf"]
-[ext_resource type="Script" path="res://TimeManager/Events/TimeBasedEvent.gd" id="7_v2641"]
+[ext_resource type="Script" path="res://addons/timemanager/TimeManager.gd" id="1_f4501"]
+[ext_resource type="Resource" uid="uid://gq25smxkalt3" path="res://Sample/ExampleTimePeriods/Morning.tres" id="2_4c2le"]
+[ext_resource type="PackedScene" uid="uid://bhj1wltnv868r" path="res://addons/timemanager/GUI/TimeManagerGUI.tscn" id="3_1pd63"]
+[ext_resource type="Resource" uid="uid://casqjkipsynup" path="res://Sample/ExampleTimePeriods/Afternoon.tres" id="3_qj834"]
+[ext_resource type="Resource" uid="uid://cmigv56iair00" path="res://Sample/ExampleTimePeriods/Evening.tres" id="4_xpklh"]
+[ext_resource type="Resource" uid="uid://cdokthafxmvf1" path="res://Sample/ExampleTimePeriods/Night.tres" id="5_57hnf"]
+[ext_resource type="Script" path="res://addons/timemanager/Events/TimeBasedEvent.gd" id="7_v2641"]
 [ext_resource type="Texture2D" uid="uid://b6xqd33lhh7dh" path="res://icon.svg" id="8_854s6"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TimeManager" type="Node" parent="."]
-script = ExtResource("1_6oes0")
+script = ExtResource("1_f4501")
 timePeriods = [ExtResource("2_4c2le"), ExtResource("3_qj834"), ExtResource("4_xpklh"), ExtResource("5_57hnf")]
 
 [node name="Node2D" type="Node2D" parent="TimeManager"]

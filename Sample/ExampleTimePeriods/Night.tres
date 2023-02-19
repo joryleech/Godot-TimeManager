@@ -1,8 +1,8 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bmqonc5p3w0jw"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cdokthafxmvf1"]
 
-[ext_resource type="Script" path="res://TimeManager/TimePeriod.gd" id="1_4a6ku"]
+[ext_resource type="Script" path="res://addons/timemanager/TimePeriod.gd" id="1_orxin"]
 
 [resource]
-script = ExtResource("1_4a6ku")
+script = ExtResource("1_orxin")
 name = "Night"
 tags = ["", "", "", ""]

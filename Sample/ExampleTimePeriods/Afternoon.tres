@@ -1,8 +1,8 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://764wjbhe25ep"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://casqjkipsynup"]
 
-[ext_resource type="Script" path="res://TimeManager/TimePeriod.gd" id="1_i74js"]
+[ext_resource type="Script" path="res://addons/timemanager/TimePeriod.gd" id="1_eayt3"]
 
 [resource]
-script = ExtResource("1_i74js")
+script = ExtResource("1_eayt3")
 name = "Afternoon"
 tags = ["", "", "", ""]

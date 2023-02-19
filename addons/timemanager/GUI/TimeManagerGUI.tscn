@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhj1wltnv868r"]
 
-[ext_resource type="Script" path="res://TimeManager/GUI/TimeManagerGUI.gd" id="1_5ba40"]
+[ext_resource type="Script" path="res://addons/timemanager/GUI/TimeManagerGUI.gd" id="1_q66pb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_38u2l"]
 line_spacing = 5.0
@@ -11,24 +11,16 @@ offset_right = 329.0
 offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5ba40")
+script = ExtResource("1_q66pb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 329.0
-offset_bottom = 137.0
 alignment = 1
 
 [node name="Time Label" type="Label" parent="VBoxContainer"]
-offset_top = 30.0
-offset_right = 329.0
-offset_bottom = 77.0
 text = "Time Signifier Label"
 label_settings = SubResource("LabelSettings_38u2l")
 horizontal_alignment = 1
 
 [node name="Day Label" type="Label" parent="VBoxContainer"]
-offset_top = 81.0
-offset_right = 329.0
-offset_bottom = 107.0
 text = "Day 0"
 horizontal_alignment = 1
